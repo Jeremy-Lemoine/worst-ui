@@ -1,0 +1,14 @@
+.panel {
+	padding-block: 35px;
+	padding-inline: 60px;
+	border-radius: 20px;
+	border: 1px solid #aaa;
+	min-width: 250px;
+	max-width: 60vw;
+	box-shadow: 0 0 10px #aaa;
+	.header {
+		font-size: 1.5em;
+		margin-bottom: 10px;
+		text-align: center;
+	}
+}

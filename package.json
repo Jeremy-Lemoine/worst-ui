@@ -15,12 +15,15 @@
 	},
 	"dependencies": {
 		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
+		"react-dom": "^18.2.0",
+		"sass": "^1.72.0"
 	},
 	"lint-staged": {
-		"*.{js,jsx,mjs,cjs,ts,tsx,json,css,scss,prettierrc}": [
-			"eslint --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+		"*.{mjs,cjs,ts,tsx,json,css,scss,prettierrc,html,js,jsx}": [
 			"prettier --write"
+		],
+		"*.{ts,tsx}": [
+			"eslint --report-unused-disable-directives --max-warnings 0"
 		]
 	},
 	"devDependencies": {
