@@ -1,0 +1,40 @@
+{
+	"name": "worstui",
+	"private": true,
+	"version": "0.0.0",
+	"homepage": "https://jeremy-lemoine.github.io/worst-ui/",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+		"pretty": "prettier --write \"./**/*.{js,jsx,mjs,cjs,ts,tsx,json,css,scss,prettierrc}\"",
+		"build": "tsc && vite build",
+		"predeploy": "npm run lint && npm run pretty && npm run build",
+		"deploy": "gh-pages -d dist",
+		"postdeploy": "rm -rf dist"
+	},
+	"pre-commit": {
+		"run": [
+			"lint",
+			"pretty"
+		]
+	},
+	"dependencies": {
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"@types/react": "^18.2.64",
+		"@types/react-dom": "^18.2.21",
+		"@typescript-eslint/eslint-plugin": "^7.1.1",
+		"@typescript-eslint/parser": "^7.1.1",
+		"@vitejs/plugin-react": "^4.2.1",
+		"eslint": "^8.57.0",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-react-refresh": "^0.4.5",
+		"gh-pages": "^6.1.1",
+		"prettier": "^3.2.5",
+		"typescript": "^5.2.2",
+		"vite": "^5.1.6"
+	}
+}
