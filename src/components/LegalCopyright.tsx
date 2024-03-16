@@ -6,6 +6,7 @@ function LegalCopyright() {
 				bottom: "10px",
 				right: "10px",
 				color: "#bbb",
+				userSelect: "none",
 			}}
 		>
 			<span>&copy; Jérémy Lemoine 2024</span>
