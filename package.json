@@ -22,7 +22,8 @@
 		"@mantine/nprogress": "^7.6.2",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"sass": "^1.72.0"
+		"sass": "^1.72.0",
+		"zustand": "^4.5.2"
 	},
 	"lint-staged": {
 		"*.{mjs,cjs,ts,tsx,json,css,scss,prettierrc,html,js,jsx}": [
