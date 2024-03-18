@@ -1,10 +1,12 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { selectAttributes } from "../utils";
 
 type State = {
 	time: number;
 	interval: number | null;
 	start: () => void;
+	stop: () => void;
 	reset: () => void;
 	isStarted: () => boolean;
 };
@@ -35,7 +37,7 @@ const useGlobalTimer = create<State>()(
 		}),
 		{
 			name: "timer",
-			partialize: ({ time }) => ({ time }),
+			partialize: selectAttributes(["time"]),
 		},
 	),
 );

@@ -1,5 +1,5 @@
 import { Container, Space, Title } from "@mantine/core";
-import useGlobalTimer from "../../contexts/TimerContext";
+import useGlobalTimer from "../../contexts/Timer/TimerStore";
 
 function Timer() {
 	const time = useGlobalTimer((state) => state.time);

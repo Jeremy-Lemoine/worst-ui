@@ -1,19 +1,21 @@
 import { Container } from "@mantine/core";
 import {} from "@mantine/hooks";
 import "./App.scss";
-import LegalCopyright from "./components/LegalCopyright";
-import ThemeProvider from "./components/Theme/ThemeProvider";
-import Timer from "./components/Timer/Timer";
-import Welcome from "./components/Welcome/Welcome";
+import LegalCopyright from "./components/LegalCopyright/LegalCopyright";
 import ResumeOrRestart from "./components/ResumeOrRestart/ResumeOrRestart";
+import Steps from "./components/Steps/Steps";
+import Timer from "./components/Timer/Timer";
+import NotificationProvider from "./contexts/Notification/NotificationProvider";
+import ThemeProvider from "./contexts/Theme/ThemeProvider";
 
 function App() {
 	return (
 		<ThemeProvider>
+			<NotificationProvider />
 			<ResumeOrRestart>
 				<Timer />
 				<Container size="sm" m="auto">
-					<Welcome />
+					<Steps />
 				</Container>
 			</ResumeOrRestart>
 			<LegalCopyright />

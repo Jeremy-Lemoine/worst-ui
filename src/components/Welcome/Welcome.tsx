@@ -8,19 +8,16 @@ import {
 	Text,
 } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
-import useGlobalTimer from "../../contexts/TimerContext";
+import useGlobalSteps from "../../contexts/Steps/StepsStore";
+import useGlobalTimer from "../../contexts/Timer/TimerStore";
 
 function Welcome() {
 	const startTimer = useGlobalTimer((state) => state.start);
 	const isTimerStarted = useGlobalTimer((state) => state.isStarted);
+	const setStep = useGlobalSteps((state) => state.setActive);
 
 	const next = () => {
-		if (isTimerStarted()) return;
-		notifications.show({
-			title: "Bravo!",
-			message: "Now that you got it, let's see what score you will get!",
-		});
-		startTimer();
+		setStep(0);
 	};
 
 	const stayHere = () => {

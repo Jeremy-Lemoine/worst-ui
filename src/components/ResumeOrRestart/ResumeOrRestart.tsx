@@ -8,37 +8,44 @@ import {
 	Space,
 	Text,
 } from "@mantine/core";
-import { useEffect, useState } from "react";
-import useGlobalTimer from "../../contexts/TimerContext";
+import { useEffect, useRef, useState } from "react";
+import useGlobalSteps from "../../contexts/Steps/StepsStore";
+import useGlobalTimer from "../../contexts/Timer/TimerStore";
 
 function ResumeOrRestart({ children }: { children: React.ReactNode }) {
 	const resetTimer = useGlobalTimer((state) => state.reset);
 	const startTimer = useGlobalTimer((state) => state.start);
+	const resetSteps = useGlobalSteps((state) => state.reset);
+	const isFinishedGame = useGlobalSteps((state) => state.isMax);
 
-	const time = useGlobalTimer((state) => state.time);
+	const time = useRef(useGlobalTimer.getState().time);
 	const [isLoading, setisLoading] = useState(true);
 	const [isChoiceNeeded, setIsChoiceNeeded] = useState(false);
 
-	const displayedTime = new Date(time * 1000).toISOString().substring(14, 19);
+	const displayedTime = new Date(time.current * 1000)
+		.toISOString()
+		.substring(14, 19);
 
 	useEffect(() => {
-		if (time > 0) {
+		if (time.current > 0) {
 			setisLoading(false);
 			setIsChoiceNeeded(true);
 		} else {
 			setisLoading(false);
 		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const restart = () => {
-		setIsChoiceNeeded(false);
+		resetSteps();
 		resetTimer();
+		setIsChoiceNeeded(false);
 	};
 
 	const resume = () => {
 		setIsChoiceNeeded(false);
-		startTimer();
+		if (!isFinishedGame()) {
+			startTimer();
+		}
 	};
 
 	return (
