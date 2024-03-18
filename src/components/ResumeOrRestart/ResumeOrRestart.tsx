@@ -19,6 +19,7 @@ function ResumeOrRestart({ children }: { children: React.ReactNode }) {
 	const isFinishedGame = useGlobalSteps((state) => state.isMax);
 
 	const time = useRef(useGlobalTimer.getState().time);
+	const step = useRef(useGlobalSteps.getState().active);
 	const [isLoading, setisLoading] = useState(true);
 	const [isChoiceNeeded, setIsChoiceNeeded] = useState(false);
 
@@ -27,7 +28,7 @@ function ResumeOrRestart({ children }: { children: React.ReactNode }) {
 		.substring(14, 19);
 
 	useEffect(() => {
-		if (time.current > 0) {
+		if (time.current > 0 || step.current >= 0) {
 			setisLoading(false);
 			setIsChoiceNeeded(true);
 		} else {
