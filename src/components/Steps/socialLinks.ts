@@ -1,5 +1,5 @@
-import githubLogo from "../../assets/github-logo.svg";
-import linkedinLogo from "../../assets/linkedin-logo.svg";
+import githubLogo from "@assets/github-logo.svg";
+import linkedinLogo from "@assets/linkedin-logo.svg";
 
 const socialLinks: { href: string; src: string; alt: string }[] = [
 	{

@@ -1,3 +1,5 @@
+import useGlobalSteps from "@contexts/Steps/StepsStore";
+import useGlobalTimer from "@contexts/Timer/TimerStore";
 import {
 	Button,
 	Container,
@@ -8,10 +10,8 @@ import {
 	Space,
 	Text,
 } from "@mantine/core";
+import { timerDispslayedTime } from "@utils/time";
 import { useEffect, useRef, useState } from "react";
-import useGlobalSteps from "../../contexts/Steps/StepsStore";
-import useGlobalTimer from "../../contexts/Timer/TimerStore";
-import { timerDispslayedTime } from "../../utils/time";
 
 function ResumeOrRestart({ children }: { children: React.ReactNode }) {
 	const resetTimer = useGlobalTimer((state) => state.reset);

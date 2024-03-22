@@ -1,6 +1,6 @@
+import useGlobalTimer from "@contexts/Timer/TimerStore";
 import { Container, Space, Title } from "@mantine/core";
-import useGlobalTimer from "../../contexts/Timer/TimerStore";
-import { timerDispslayedTime } from "../../utils/time";
+import { timerDispslayedTime } from "@utils/time";
 
 function Timer() {
 	const time = useGlobalTimer((state) => state.time);

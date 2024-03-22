@@ -1,10 +1,10 @@
+import { selectAttributes } from "@contexts/utils";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { selectAttributes } from "../utils";
 
 type State = {
 	time: number;
-	interval: number | null;
+	interval: NodeJS.Timeout | null;
 	start: () => void;
 	stop: () => void;
 	reset: () => void;

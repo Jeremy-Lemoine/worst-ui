@@ -1,7 +1,10 @@
+import stepDetails, {
+	maxStepNumber,
+	onCompleteReach,
+} from "@contexts/Steps/stepDetails";
+import { selectAttributes } from "@contexts/utils";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { selectAttributes } from "../utils";
-import stepDetails, { maxStepNumber, onCompleteReach } from "./stepDetails";
 
 type State = {
 	active: number;

@@ -1,5 +1,5 @@
+import socialLinks from "@components/Steps/socialLinks";
 import { Center, Flex, Image, Paper, Space, Text } from "@mantine/core";
-import socialLinks from "./socialLinks";
 
 export default function CompletedStepContent() {
 	return (

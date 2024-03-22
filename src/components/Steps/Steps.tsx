@@ -1,9 +1,8 @@
+import CompletedStepContent from "@components/Steps/CompletedStepContent";
+import Welcome from "@components/Welcome/Welcome";
+import useGlobalSteps from "@contexts/Steps/StepsStore";
+import stepDetails from "@contexts/Steps/stepDetails";
 import { Stepper, StepperCompleted } from "@mantine/core";
-import useGlobalSteps from "../../contexts/Steps/StepsStore";
-import stepDetails from "../../contexts/Steps/stepDetails";
-import Welcome from "../Welcome/Welcome";
-
-import CompletedStepContent from "./CompletedStepContent";
 
 function Steps() {
 	const activeStep = useGlobalSteps((state) => state.active);

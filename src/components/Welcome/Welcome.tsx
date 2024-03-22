@@ -1,3 +1,5 @@
+import { nextStep } from "@contexts/Steps/stepDetails";
+import useGlobalTimer from "@contexts/Timer/TimerStore";
 import {
 	Button,
 	CloseButton,
@@ -8,8 +10,6 @@ import {
 	Text,
 } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
-import { nextStep } from "../../contexts/Steps/stepDetails";
-import useGlobalTimer from "../../contexts/Timer/TimerStore";
 
 function Welcome() {
 	const startTimer = useGlobalTimer((state) => state.start);

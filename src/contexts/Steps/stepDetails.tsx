@@ -1,7 +1,7 @@
+import useGlobalSteps from "@contexts/Steps/StepsStore";
+import useGlobalTimer from "@contexts/Timer/TimerStore";
 import { Button } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
-import useGlobalTimer from "../Timer/TimerStore";
-import useGlobalSteps from "./StepsStore";
 
 const startTimer = useGlobalTimer.getState().start;
 const stopTimer = useGlobalTimer.getState().stop;
