@@ -11,6 +11,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 import useGlobalSteps from "../../contexts/Steps/StepsStore";
 import useGlobalTimer from "../../contexts/Timer/TimerStore";
+import { timerDispslayedTime } from "../../utils/time";
 
 function ResumeOrRestart({ children }: { children: React.ReactNode }) {
 	const resetTimer = useGlobalTimer((state) => state.reset);
@@ -23,9 +24,7 @@ function ResumeOrRestart({ children }: { children: React.ReactNode }) {
 	const [isLoading, setisLoading] = useState(true);
 	const [isChoiceNeeded, setIsChoiceNeeded] = useState(false);
 
-	const displayedTime = new Date(time.current * 1000)
-		.toISOString()
-		.substring(14, 19);
+	const displayedTime = timerDispslayedTime(time.current);
 
 	useEffect(() => {
 		if (time.current > 0 || step.current >= 0) {

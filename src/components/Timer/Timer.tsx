@@ -1,15 +1,17 @@
 import { Container, Space, Title } from "@mantine/core";
 import useGlobalTimer from "../../contexts/Timer/TimerStore";
+import { timerDispslayedTime } from "../../utils/time";
 
 function Timer() {
 	const time = useGlobalTimer((state) => state.time);
 
-	const displayedTime = new Date(time * 1000).toISOString().substring(14, 19);
+	const displayedTime = timerDispslayedTime(time);
 
 	return (
 		<Container fluid>
 			<Space h="md" />
 			<Title order={1}>{displayedTime}</Title>
+			<Space h="xl" />
 		</Container>
 	);
 }
