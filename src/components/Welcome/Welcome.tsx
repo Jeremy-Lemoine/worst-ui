@@ -8,17 +8,12 @@ import {
 	Text,
 } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
-import useGlobalSteps from "../../contexts/Steps/StepsStore";
+import { nextStep } from "../../contexts/Steps/stepDetails";
 import useGlobalTimer from "../../contexts/Timer/TimerStore";
 
 function Welcome() {
 	const startTimer = useGlobalTimer((state) => state.start);
 	const isTimerStarted = useGlobalTimer((state) => state.isStarted);
-	const setStep = useGlobalSteps((state) => state.setActive);
-
-	const next = () => {
-		setStep(0);
-	};
 
 	const stayHere = () => {
 		notifications.show({
@@ -51,7 +46,7 @@ function Welcome() {
 			<CloseButton
 				size="sm"
 				variant="transparent"
-				onClick={next}
+				onClick={nextStep}
 				pos="absolute"
 				top="10px"
 				right="10px"
@@ -70,7 +65,7 @@ function Welcome() {
 				Here we are gonna <Mark>take care of you</Mark>. You will have
 				to go through multiple <Mark>steps</Mark>, and it will be harder
 				and harder to guess what you are supposed to do. When you will
-				start on next step, a <Mark>timer</Mark> will start. Good{" "}
+				reach next step, a <Mark>timer</Mark> will start. Good{" "}
 				<Mark>luck</Mark> ;)
 			</Text>
 			<Space h="md" />

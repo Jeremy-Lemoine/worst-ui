@@ -1,4 +1,4 @@
-import { Container } from "@mantine/core";
+import { Container, Space } from "@mantine/core";
 import {} from "@mantine/hooks";
 import "./App.scss";
 import LegalCopyright from "./components/LegalCopyright/LegalCopyright";
@@ -14,6 +14,7 @@ function App() {
 			<NotificationProvider />
 			<ResumeOrRestart>
 				<Timer />
+				<Space h="xl" />
 				<Container size="sm" m="auto">
 					<Steps />
 				</Container>

@@ -43,4 +43,11 @@ export function getStepDetails(stepNumber: number) {
 
 export const maxStepNumber = stepDetails.length;
 
+export function nextStep() {
+	const currentStep = useGlobalSteps.getState().active;
+	if (currentStep < maxStepNumber) {
+		useGlobalSteps.getState().setActive(currentStep + 1);
+	}
+}
+
 export default stepDetails;

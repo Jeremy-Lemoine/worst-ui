@@ -1,7 +1,9 @@
-import { Paper, Stepper, StepperCompleted, Text } from "@mantine/core";
+import { Stepper, StepperCompleted } from "@mantine/core";
 import useGlobalSteps from "../../contexts/Steps/StepsStore";
-import Welcome from "../Welcome/Welcome";
 import stepDetails from "../../contexts/Steps/stepDetails";
+import Welcome from "../Welcome/Welcome";
+
+import CompletedStepContent from "./CompletedStepContent";
 
 function Steps() {
 	const activeStep = useGlobalSteps((state) => state.active);
@@ -26,22 +28,6 @@ function Steps() {
 				<CompletedStepContent />
 			</StepperCompleted>
 		</Stepper>
-	);
-}
-
-function CompletedStepContent() {
-	return (
-		<Paper p="xl" shadow="lg" withBorder m="auto">
-			<Text
-				ta="center"
-				fw={700}
-				size="lg"
-				c="var(--mantine-primary-color-5)"
-			>
-				Congrats!
-			</Text>
-			<Text>You nailed it!</Text>
-		</Paper>
 	);
 }
 
