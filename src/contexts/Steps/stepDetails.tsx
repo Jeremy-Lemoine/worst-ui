@@ -1,27 +1,17 @@
+import AccountCreation from "@components/AccountCreation/AccountCreation";
 import useGlobalSteps from "@contexts/Steps/StepsStore";
+import StepDetail from "@contexts/Steps/stepDetail";
 import useGlobalTimer from "@contexts/Timer/TimerStore";
-import { Button } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
 
 const startTimer = useGlobalTimer.getState().start;
 const stopTimer = useGlobalTimer.getState().stop;
 
-type StepDetail = {
-	label: string;
-	description: string;
-	Component: () => JSX.Element;
-	onReach?: () => void;
-};
-
 const stepDetails: StepDetail[] = [
 	{
 		label: "Account creation",
 		description: "Credentials",
-		Component: () => (
-			<Button onClick={() => useGlobalSteps.getState().setActive(1)}>
-				TODO
-			</Button>
-		),
+		Component: AccountCreation,
 		onReach: () => {
 			startTimer();
 			notifications.show({

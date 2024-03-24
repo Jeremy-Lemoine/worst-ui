@@ -51,20 +51,14 @@ function ResumeOrRestart({ children }: { children: React.ReactNode }) {
 	return (
 		<>
 			{isLoading ? (
-				<Container size="sm" m="auto">
+				<Container size="xs" my="auto">
 					<Loader />
 				</Container>
 			) : !isChoiceNeeded ? (
 				<>{children}</>
 			) : (
-				<Container size="sm" m="auto">
-					<Paper
-						p="xl"
-						shadow="lg"
-						withBorder
-						pos="relative"
-						m="auto"
-					>
+				<Container size="xs" my="auto">
+					<Paper p="xl" shadow="lg" withBorder>
 						<Text ta="center" fw={700} size="lg" c="orange.7">
 							Resume or restart from scratch?
 						</Text>

@@ -11,7 +11,6 @@ function Timer() {
 		<Container fluid>
 			<Space h="md" />
 			<Title order={1}>{displayedTime}</Title>
-			<Space h="xl" />
 		</Container>
 	);
 }

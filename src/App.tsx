@@ -17,7 +17,7 @@ function App() {
 			<NotificationProvider />
 			<ResumeOrRestart>
 				<Timer />
-				<Container size="sm" m="auto">
+				<Container my="auto" py="xl" size="xs">
 					<Steps />
 				</Container>
 			</ResumeOrRestart>

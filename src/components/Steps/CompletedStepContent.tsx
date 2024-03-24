@@ -1,5 +1,5 @@
 import socialLinks from "@components/Steps/socialLinks";
-import { Center, Flex, Image, Paper, Space, Text } from "@mantine/core";
+import { Flex, Image, Paper, Space, Text } from "@mantine/core";
 
 export default function CompletedStepContent() {
 	return (
@@ -18,20 +18,18 @@ export default function CompletedStepContent() {
 				&#128521;
 			</Text>
 			<Space h="xl" />
-			<Center>
-				<Flex gap="md">
-					{socialLinks.map((link, index) => (
-						<a
-							key={index}
-							href={link.href}
-							target="_blank"
-							rel="noreferrer"
-						>
-							<Image src={link.src} alt={link.alt} h={40} />
-						</a>
-					))}
-				</Flex>
-			</Center>
+			<Flex gap="md" justify="center">
+				{socialLinks.map((link, index) => (
+					<a
+						key={index}
+						href={link.href}
+						target="_blank"
+						rel="noreferrer"
+					>
+						<Image src={link.src} alt={link.alt} h={40} w={40} />
+					</a>
+				))}
+			</Flex>
 		</Paper>
 	);
 }
