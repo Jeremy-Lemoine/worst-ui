@@ -1,8 +1,8 @@
 import buildWorstErrors from "@components/WorstInput/buildWorstErrors";
 import { Container, Text, TextInput } from "@mantine/core";
 import { UseFormReturnType } from "@mantine/form";
-import { upperFirst } from "@mantine/hooks";
 import { useMemo } from "react";
+import _ from "lodash";
 
 type WorstInputPropsType<T> = {
 	useFormContext: () => UseFormReturnType<T, (values: T) => T>;
@@ -20,7 +20,7 @@ function WorstInput<T>({
 }: WorstInputPropsType<T>) {
 	const form = useFormContext();
 
-	const upperCaseName = useMemo(() => upperFirst(name as string), [name]);
+	const upperCaseName = useMemo(() => _.startCase(name as string), [name]);
 	const InputComponent = useMemo(() => Component || TextInput, [Component]);
 
 	const [errors, errorStyles] = buildWorstErrors(form.errors, name as string);

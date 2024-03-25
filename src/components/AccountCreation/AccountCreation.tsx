@@ -1,4 +1,5 @@
 import {
+	validateConfirmPassword,
 	validateEmail,
 	validatePassword,
 } from "@components/AccountCreation/validators";
@@ -17,6 +18,7 @@ import { createFormContext } from "@mantine/form";
 type FormData = {
 	email: string;
 	password: string;
+	confirmPassword: string;
 };
 
 const [FromProvider, useFormContext, useForm] = createFormContext<FormData>();
@@ -24,12 +26,14 @@ const [FromProvider, useFormContext, useForm] = createFormContext<FormData>();
 function AccountCreation() {
 	const form = useForm({
 		initialValues: {
-			email: "",
-			password: "",
+			email: "Your email address",
+			password: "p@ssw0rd",
+			confirmPassword: "c0nf1rmP@ssw0rd",
 		},
 		validate: {
 			email: validateEmail,
 			password: validatePassword,
+			confirmPassword: validateConfirmPassword,
 		},
 	});
 
@@ -47,15 +51,16 @@ function AccountCreation() {
 			>
 				Create your account
 			</Text>
-			<Space h="md" />
 			<FromProvider form={form}>
 				<form onSubmit={form.onSubmit(onSubmit)}>
+					<Space h="md" />
 					<WorstInput
 						Component={TextInput}
 						useFormContext={useFormContext}
 						name="email"
 						required
 					/>
+					<Space h="md" />
 					<WorstInput
 						Component={PasswordInput}
 						useFormContext={useFormContext}
@@ -63,6 +68,13 @@ function AccountCreation() {
 						required
 					/>
 					<Space h="md" />
+					<WorstInput
+						Component={PasswordInput}
+						useFormContext={useFormContext}
+						name="confirmPassword"
+						required
+					/>
+					<Space h="xl" />
 					<Button type="submit">Create account</Button>
 				</form>
 			</FromProvider>

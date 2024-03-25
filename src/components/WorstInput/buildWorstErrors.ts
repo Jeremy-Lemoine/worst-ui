@@ -4,12 +4,16 @@ import { CSSProperties } from "react";
 
 type MantineInputStyles = Partial<Record<__InputStylesNames, CSSProperties>>;
 
-const errorStyles: MantineInputStyles = {
-	input: { border: "1px solid green" },
+const defautlStyles: MantineInputStyles = {
+	input: { color: "gray" },
 };
 
-const defaultStyles: MantineInputStyles = {
-	input: { border: "1px solid lightgray" },
+const errorStyles: MantineInputStyles = {
+	input: { border: "1px solid green", ...defautlStyles?.input },
+};
+
+const validStyles: MantineInputStyles = {
+	input: { border: "1px solid red", ...defautlStyles?.input },
 };
 
 export default function buildWorstErrors(
@@ -22,6 +26,6 @@ export default function buildWorstErrors(
 	} else if (Array.isArray(errors) && errors.length > 0) {
 		return [errors as string[], errorStyles];
 	} else {
-		return [[], defaultStyles];
+		return [[], validStyles];
 	}
 }
