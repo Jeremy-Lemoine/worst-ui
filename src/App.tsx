@@ -9,6 +9,7 @@ import { Container } from "@mantine/core";
 import { useFavicon } from "@mantine/hooks";
 
 import favicon from "@assets/favicon.ico";
+import DevNavbar from "@components/DevNavbar/DevNavbar";
 
 function App() {
 	useFavicon(favicon);
@@ -16,6 +17,7 @@ function App() {
 		<ThemeProvider>
 			<NotificationProvider />
 			<ResumeOrRestart>
+				<DevNavbar />
 				<Timer />
 				<Container my="auto" py="xl" size="xs">
 					<Steps />

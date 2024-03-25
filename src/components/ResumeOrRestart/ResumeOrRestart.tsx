@@ -1,5 +1,6 @@
 import useGlobalSteps from "@contexts/Steps/StepsStore";
 import useGlobalTimer from "@contexts/Timer/TimerStore";
+import { devEnvironment } from "@contexts/Timer/dev";
 import {
 	Button,
 	Container,
@@ -10,13 +11,12 @@ import {
 	Space,
 	Text,
 } from "@mantine/core";
+import restartEverything from "@utils/restartEverything";
 import { timerDispslayedTime } from "@utils/time";
 import { useEffect, useRef, useState } from "react";
 
 function ResumeOrRestart({ children }: { children: React.ReactNode }) {
-	const resetTimer = useGlobalTimer((state) => state.reset);
 	const startTimer = useGlobalTimer((state) => state.start);
-	const resetSteps = useGlobalSteps((state) => state.reset);
 	const isFinishedGame = useGlobalSteps((state) => state.isMax);
 
 	const time = useRef(useGlobalTimer.getState().time);
@@ -36,8 +36,7 @@ function ResumeOrRestart({ children }: { children: React.ReactNode }) {
 	}, []);
 
 	const restart = () => {
-		resetSteps();
-		resetTimer();
+		restartEverything();
 		setIsChoiceNeeded(false);
 	};
 
@@ -54,7 +53,7 @@ function ResumeOrRestart({ children }: { children: React.ReactNode }) {
 				<Container size="xs" my="auto">
 					<Loader />
 				</Container>
-			) : !isChoiceNeeded ? (
+			) : !isChoiceNeeded || devEnvironment ? (
 				<>{children}</>
 			) : (
 				<Container size="xs" my="auto">
