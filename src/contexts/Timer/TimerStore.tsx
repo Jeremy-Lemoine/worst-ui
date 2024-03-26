@@ -32,7 +32,13 @@ const useGlobalTimer = create<State>()(
 					set({ interval: null });
 				}
 			},
-			reset: () => set({ time: 0, interval: null }),
+			reset: () => {
+				const currentTimer = get().interval;
+				if (currentTimer) {
+					clearInterval(currentTimer);
+				}
+				set({ time: 0, interval: null });
+			},
 			isStarted: () => get().interval !== null,
 		}),
 		{
